@@ -1,0 +1,6 @@
+Vitaliy Gavrilov
+Theodore Gariety
+Ryan “Bob” Dean
+
+
+TicTacTwo is run by running the node js server, but it also requires the express and socket.io frameworks. The server can be run by running node app.js in the TicTacTwo directory. App.js is the server code and controls the functionality of the code. Not all of the functionality is implemented, login does not exist yet and neither does score keeping. Because login doesn’t work, we also don’t have a way to access the username from any point yet, so we have temporarily prompts in different places asking for usernames. The game does work currently if one player hosts a game and a different player joins. If they properly identify their usernames, the functionality of the game should work. 

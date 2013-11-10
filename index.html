@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+   Author Name: Ryan "Bob" Dean
+   Assignment : Front page for Bob's Bobs Inc.
+   Due Date   : 07/17/2011
+   Preferred Browser: Mozilla Firefox
+-->
+
+<head>
+  <title>Tic Tac Two,the Long awaited Sequel!</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script>
+      var socket = io.connect('http://localhost:8080');
+      
+      var username = prompt("What's your username?");
+      // Get socket connected
+      socket.on('connect', function(){
+                console.log("socket id " + socket.id);
+                // call the server-side function 'adduser' and send one parameter (value of prompt)
+                socket.emit('username', username);
+                socket.emit('set name', username);
+                });
+      </script>
+  
+</head>
+
+<!-- This section contains the "content" or "structure" of the page. -->
+<body>
+	<div id="header">	
+		<a href="index.html"><img alt="The logo for Tic Tac Two." src="logo2.png" /></a>
+		<div id="titlebox"><h2>Tic Tac Two, The Long Awaited Sequel</h2></div>
+		
+	</div>
+	<div class="clear"></div>
+	<div id="wrapper">
+		<div id="navigation">
+			<a href="login.html">Login</a>
+			<a href="tictactwo.html">Hot Seat Multiplayer</a>
+			<a href="hostgame.html">Host Online Game</a>
+            <a href="records.html">Check Records</a>
+			<a href="aboutus.html">About Us</a>
+		
+		</div>
+		</div>
+		<div id="maincontent">		Welcome to the home of Tic Tac Two! If you've got a friend at the computer with you, play hotseat. Hotseat does not require login.If you want to host a game for a friend, login '<br /><br /><hr />
+
+	</div>
+	<div id="linkbar">
+            <a href="index.html">Home</a>&nbsp;&nbsp;&nbsp;
+            <a href="login.html">Login</a>&nbsp;&nbsp;&nbsp;
+			<a href="tictactwo.html">Hot Seat Multiplayer</a>&nbsp;&nbsp;&nbsp;
+			<a href="hostgame.html">Host Online Game</a>&nbsp;&nbsp;&nbsp;
+			<a href="records.html">Check Records</a>&nbsp;&nbsp;&nbsp;
+			<a href="aboutus.html">About Us</a>&nbsp;&nbsp;&nbsp;
+	</div>
+	<div id="copyright">
+		&copy; 2013 Apathy Studios
+	</div>
+</body>
+</html>

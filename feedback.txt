@@ -1,0 +1,30 @@
+﻿Responses to feedback:
+
+
+Feedback: The color scheme is too bright.
+
+Response: We got this feedback from multiple groups, so we'll be toning down the colors a bit.
+
+
+
+Feedback: Please put instructions on the game page.
+
+Response: Yep, already in the plans, just haven't gotten around to it yet.
+
+
+
+Feedback: Cool idea.
+
+Response: Thanks!
+
+
+
+Feedback: Any plans to make the game resizable?
+
+Response: No, and we're not sure how viable it is right now. The images are jpgs, which don't scale all that well. We would have to replace a lot of the assets, and the code itself would need to be modified as well. It's something we will keep in mind, but it's not a priority.
+
+
+
+Feedback: This feedback wasn't on a form, but was given to me by some EE students who played it. They requested an easier mode that indicated which symbol would be the next to disappear.
+
+Response: Again, this seems simple in theory, but we're not sure yet how viable it is within our current time frame. Definitely something we will be looking into though, because it's a good idea to add more content to the game. 
