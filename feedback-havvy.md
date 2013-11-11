@@ -46,6 +46,7 @@ like this:
 
 ```javascript
 $(function () { /* your code here */ });
+```
 
 ### Considerations
 
