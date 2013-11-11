@@ -1,0 +1,36 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        title=titlel
+        link(href="/css/main.css", rel="stylesheet", type="text/css")
+        script(src="/socket.io/socket.io.js")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+        script(src=script)
+    body
+        #header
+            a(href="/")
+                img(src="/img/logo2.png", alt="The logo for Tic Tac Two.")
+            #titlebox
+                h2="Tic Tac Two, The Long Awaited Sequel"
+        #clear
+        #wrapper
+            #navigation
+                a(href="/login")="Login"
+                a(href="/tictactwo")="Host Seat Multiplayer"
+                a(href="/hostgame")="Host Online Game"
+                a(href="/records")="Check Records"
+                a(href="/about")="About Us"
+        #maincontent
+            block content
+        #linkbar
+            a(href="/login")="Login"
+            | &nbsp;&nbsp&nbsp;
+            a(href="/tictactwo")="Host Seat Multiplayer"
+            | &nbsp;&nbsp&nbsp;
+            a(href="/hostgame")="Host Online Game"
+            | &nbsp;&nbsp&nbsp;
+            a(href="/records")="Check Records"
+            | &nbsp;&nbsp&nbsp;
+            a(href="/about")="About Us"
+        #copyright= !"&copy; 2013 Apathy Studios"
