@@ -1,0 +1,36 @@
+{
+  "name": "tennu-translate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tic Tac Two project for WSU Learning Project",
+  "maintainers": [
+    {
+      "name": "Bobert Locke",
+      "email": "",
+      "web": ""
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Ryan Scheel (Havvy)",
+      "email": "ryan.havvy@gmail.com",
+      "web": "http://havvy.net",
+      "irc": "irc://irc.mibbit.net/havvy"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BobLocke/TicTacTwo.git"
+  },
+  "main": "app.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "socket.io": "0.9.x",
+    "sqlite": "2.1.x"
+  },
+  "devDependencies": {},
+  "scripts": {}
+}
