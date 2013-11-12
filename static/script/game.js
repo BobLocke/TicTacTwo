@@ -1,4 +1,4 @@
-(function () {
+$(function () {
  var x = "x.jpg"
       var o = "o.jpg"
       var blank = "blank.jpg"
@@ -90,4 +90,6 @@
       document.images.H.src= blank;
       document.images.I.src= blank;
   }
-}());
+
+  $('form[form="game"] img').click(play());
+};
