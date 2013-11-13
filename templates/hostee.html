@@ -17,7 +17,7 @@
   <script>
       
       
-      var player1 = prompt("What's your username?");
+      var player1 = window.name;
       var player2 = null;
       
       // Player socket.id's
@@ -54,13 +54,16 @@
              winner = 1;
              win_P1++;
              document.game.P1.value = win_P1;
-             alert("Player one won");
+             alert("You won!");
+             return true;
          } else if ((board[0] == 2 && board[1] == 2 && board[2] == 2) || (board[0] == 2 && board[3] == 2 && board[6] == 2) || (board[6] == 2 && board[7] == 2 && board[8] == 2) || (board[2] == 2 && board[5] == 2 && board[8] == 2) || (board[0] == 2 && board[4] == 2 && board[8] == 2) || (board[2] == 2 && board[4] == 2 && board[6] == 2) || (board[1] == 2 && board[4] == 2 && board[7] == 2) || (board[3] == 2 && board[4] == 2 && board[5] == 2)) {
              winner = 2;
              win_P2++;
              document.game.P2.value = win_P2;
-             alert("Player two won");
+             alert(player2 + " won");
+             return true;
          }
+         return false;
      }
   
      function  play(field) {
@@ -129,26 +132,19 @@
     
       socket.on('connect', function(){
          
-         // Get username, doesn't work
-         socket.emit('getusername');
          
          // Init game
          socket.emit('initGame', player1);
-         
-         //while(p2_id == null) 
-         //socket.emit('requestPlayer2ID', player1);
+         document.getElementById('player1').innerHTML=player1;
       });
                           
-      socket.on('myusername', function (usr) {
-         username = usr
-      });
-              
+      // Event that user joined    
       socket.on('startGame', function(p2, p2id) {
          player2 = p2;
          p2_id = p2id;
          gameStarted = true;
-         document.getElementById('player1').innerHTML=player1;
-         document.getElementById('player2').innerHTML=player2; 
+         document.getElementById('player2').innerHTML=player2;
+         alert("Player " + p2 + " has joined the game"); 
       });        
               
       socket.on('recievePlayer2ID', function(p2){
@@ -159,10 +155,14 @@
          board = b;
          myTurn = !myTurn;
          updateBoard();
-         checkWin();
+         if (checkWin())
+            socket.emit('gameOver', player1);
       });
               
-              
+      socket.on('playerDisconnected', function() {
+         alert(player2 + " has disconnected");
+         window.location.href="index.html";
+      });    
                         
     </script>
 
