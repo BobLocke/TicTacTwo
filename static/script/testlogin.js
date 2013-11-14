@@ -29,7 +29,7 @@ function login(username, password){
 	return false;
 	//disply error message (username does not exist)
     }
-    else if stmt == password){
+    else if (stmt == password){
 //login here
     return true;
     }
@@ -51,10 +51,6 @@ function register(username, password){
     else // display error message (name already taken)
 	return false;
 }
-
-function err(errtype){
-
-};
 
     db.close();
     });
