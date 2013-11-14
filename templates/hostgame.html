@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,35 +14,36 @@
     <link href="game.css" rel="stylesheet" type="text/css" />
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script>
-    var socket = io.connect('http://localhost:8080');
-    var username = socket.username;
-    // listener, whenever the server emits 'updatechat', this updates the chat body
-    socket.on('connect', function(){
-      // call the server-side function 'adduser' and send one parameter (value of prompt)
-      socket.emit('checkhosted');
-      socket.emit('getusername');
-    });
-
-    socket.on('myusername', function (usr) {
-      username = usr
-    });
-    socket.on('updategames', function (games) {
-      var list = "";
-      for (x in games)
-        list += '<a href="hostedgame.html">' + games[x][0] + '</a><br>';
-      document.getElementById('games').innerHTML = list;
-    });
-
-    $(function(){
-      // when the client clicks SEND
-      $('#addgame').click( function() {
-        window.location.href="hostee.html";
-        socket.emit('addgame', username);
-
-      });
-    });
-    </script>
+            <script>
+            var socket = io.connect('http://localhost:8080');
+            var username = window.name;
+            // When connection is made
+            socket.on('connect', function(){
+               
+               // Checks if any hosted games exist
+               socket.emit('checkhosted');
+            });
+            
+            // Gets event to update hosted game list
+            socket.on('updategames', function (games) {
+               var list = "";
+               for (x in games)
+                  list += "<a href='hostedgame.html' onClick='grabPlayer(\""+games[x]+"\")'> Play against " + games[x] + "</a><br>";
+               document.getElementById('games').innerHTML = list;
+            });
+            
+            function grabPlayer(player) {
+               window.name = window.name + "," + player;
+            }
+                    
+            $(function(){
+               // when the client clicks SEND
+               $('#addgame').click( function() {
+                  socket.emit('addgame', username);
+                  window.location.href="hostee.html";
+               });
+            });
+        </script>
   </head>
 
   <!-- This section contains the "content" or "structure" of the page. -->
