@@ -6,10 +6,26 @@ var express = require('express')
 
 server.listen(8080);
 
-
+app.set("view engine", "jade");
 app.use(express.static(__dirname));
 app.get('/', function(req, res) {
-        res.render('index.html');
+        res.render('index', {title:"Welcome"});
+        });
+app.get('/tictactwo', function(req, res) {
+        res.render('tictactwo', {title:"Play Offline", script:"/script/game.js"});
+        });
+app.post('/login', require("./routes/login"));
+app.get('/login', function(req, res) {
+        res.render('login', {title:"Login"});
+        });
+app.get('/hostgame', function(req, res) {
+        res.render('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"});
+        });
+app.get('/aboutus', function(req, res) {
+        res.render('aboutus', {title:"About the Game"});
+        });
+app.get('/records', function(req, res) {
+        res.render('records', {title:"Check Player Scores"});
         });
 
 
