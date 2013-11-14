@@ -9,8 +9,10 @@ var sqlite3 = requires("sqlite3");
 var db = new sqlite3.Database(file);
 
 db.serialize(function(){
+	if (!exists) {
 	db.run("CREATE TABLE Players (Username text primary key, Password text, Wins int, Losses int)";
 	       });
+}
 
 function login(username, password){
 
