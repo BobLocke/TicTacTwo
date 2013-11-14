@@ -6,8 +6,11 @@ var express = require('express')
 
 server.listen(8080);
 
+app.set("views", "./templates");
 app.set("view engine", "jade");
 app.use(express.static(__dirname));
+app.use(express.bodyParser());
+app.use(app.router);
 app.get('/', function(req, res) {
         res.render('index', {title:"Welcome"});
         });

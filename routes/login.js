@@ -10,16 +10,11 @@ module.exports=function(req, res) {
 	//req.body.login
 	//req.body.register
 	if (!validate(req.body.username, req.body.password)) {
-		
-			
-		});
 	}
 	
 	if (req.body.login){
 		db.login(req.body.username, req.body.password, function(err,res) {
-			if (err) {
-				
-				
+			if (err) {	
 			}
 		});
 	}
@@ -27,7 +22,7 @@ module.exports=function(req, res) {
 	} else if (req.body.register){
 		db.register(req.body.username, req.body.password, function(err,res) {
 
-		}
+		});
 
 	} else {
 
