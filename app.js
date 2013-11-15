@@ -1,35 +1,37 @@
 var express = require('express')
-  , app = express()
-  , http = require('http')
-  , server = http.createServer(app)
-  , io = require('socket.io').listen(server);
+, app = express()
+, http = require('http')
+, server = http.createServer(app)
+, io = require('socket.io').listen(server);
 
 server.listen(8080);
 
 app.set("views", "./templates");
 app.set("view engine", "jade");
+
 app.use(express.static(__dirname));
 app.use(express.bodyParser());
 app.use(app.router);
+
 app.get('/', function(req, res) {
-        res.render('index', {title:"Welcome"});
-        });
+  res.render('index', {title:"Welcome"});
+});
 app.get('/tictactwo', function(req, res) {
-        res.render('tictactwo', {title:"Play Offline", script:"/script/game.js"});
-        });
-app.post('/login', require("./routes/login"));
+  res.render('tictactwo', {title:"Play Offline", script:"/script/game.js"});
+});
+//app.post('/login', require("./routes/login"));
 app.get('/login', function(req, res) {
-        res.render('login', {title:"Login"});
-        });
+  res.render('login', {title:"Login"});
+});
 app.get('/hostgame', function(req, res) {
-        res.render('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"});
-        });
+  res.render('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"});
+});
 app.get('/aboutus', function(req, res) {
-        res.render('aboutus', {title:"About the Game"});
-        });
+  res.render('aboutus', {title:"About the Game"});
+});
 app.get('/records', function(req, res) {
-        res.render('records', {title:"Check Player Scores"});
-        });
+  res.render('records', {title:"Check Player Scores"});
+});
 
 
 var clientid = []; // player1 socket.id => [p1 socket.id, p2, p2 socket.id]
@@ -51,24 +53,24 @@ io.sockets.on('connection', function (socket) {
       
       // Emit updated available game array to all listening hostgame.html instances
       io.sockets.emit('updategames', games_available);
-   });
+    });
 
-              
+
    // Listener for checking hosted games for needed updates
    socket.on('checkhosted', function () {
-      
+
       // Log listener call
       console.log("Checking hosted for " + socket.id);
       
       // Updates available game array to all listening sockets
       io.sockets.emit('updategames', games_available);
-   });
+    });
 
    
    // Listener to initialize game
    // Sets game in game playing array
    socket.on('initGame', function(username) {
-      
+
       // Update game playing array
       games_playing[username] = socket.id;
       
@@ -76,31 +78,31 @@ io.sockets.on('connection', function (socket) {
       
       // Log new game
       console.log("New game created by " + username  + " with socket.id " + socket.id);
-   });
-  
+    });
+
    // Listener for setting info for socket.id of player 2
    socket.on('sendPlayer2ID', function(player1) {
-   
+
       // Set value
       games_playing[player1][1] = [username, socket.id];
       
       
-   });
+    });
    
- 
+
    
    // Listener for request player 2 socket.id
    socket.on('requestPlayer2ID', function(username) {
-      console.log("requestPlayer2ID " + games_playing[username][1][1]);
-         
+    console.log("requestPlayer2ID " + games_playing[username][1][1]);
+
       // Emit event to send player 1 socket.id
       socket.emit('recievePlayer2ID', games_playing[username][1][1]);
-   });
+    });
 
 
   // Listener for join game, may be implemented later
   socket.on('joingame', function(player1, player2){
-       
+
       // Log join game
       console.log("Game joined by " + player2 + " against " + games_playing[player1]);
       
@@ -118,36 +120,36 @@ io.sockets.on('connection', function (socket) {
       usr_arr = clientid[games_playing[player1]];
       usr_arr.push(player2);
       usr_arr.push(socket.id);
+    });
+
+  socket.on('sendMove', function(id, b) {
+    io.sockets.socket(id).emit('recieveMove', b);
   });
 
-   socket.on('sendMove', function(id, b) {
-      io.sockets.socket(id).emit('recieveMove', b);
-   });
-   
-   socket.on('gameOver', function(p1) {
-      games_playing.splice(player1, 1);
-   });
+  socket.on('gameOver', function(p1) {
+    games_playing.splice(player1, 1);
+  });
 
   // Listener for disconnection
   socket.on('disconnect', function(){
-    
+
     // Implement code for disconnection
     // Delete out of current usernames
     
-      for(x in clientid) {
-         console.log("socket.id is " + x + " and clientid[x][0] is " + clientid[x][0]);
+    for(x in clientid) {
+     console.log("socket.id is " + x + " and clientid[x][0] is " + clientid[x][0]);
             if(x == socket.id) { // If the disconnecting socket is hosting a game
-               
-               var i = games_available.indexOf(clientid[x][0]);
-               if(i != -1) {
+
+             var i = games_available.indexOf(clientid[x][0]);
+             if(i != -1) {
                   // Delete out of available games and notify sockets
                   console.log("Deleting available game by " + clientid[x][0]);
                   
                   games_available.splice(games_available.indexOf(clientid[x][0]), 1);
                   
                   io.sockets.emit('updategames', games_available);
-               }
-               
+                }
+
                // Notify opponent user has left, will work if game is playing
                // otherwise will not work
                io.sockets.socket(clientid[x][2]).emit('playerDisconnected');
@@ -157,7 +159,7 @@ io.sockets.on('connection', function (socket) {
                games_playing.splice(clientid[x][0], 1);  
                clientid.splice(x, 1); 
             } else if (socket.id == clientid[x][2]) { // Case that disconnecting socket is a player that joined a game
-            
+
                // Tell host that opponent has disconnected
                io.sockets.socket(x).emit('playerDisconnected');
                console.log(clientid[x][1] + " has disconnected");
@@ -165,11 +167,11 @@ io.sockets.on('connection', function (socket) {
                // Delete playing game
                games_playing.splice(clientid[x][0], 1);  
                clientid.splice(x, 1); 
-            }
-      }
-      
-      console.log("Available games");
-      for(x in games_available)
-         console.log(games_available[x]);
-  });
+             }
+           }
+
+           console.log("Available games");
+           for(x in games_available)
+             console.log(games_available[x]);
+         });
 });

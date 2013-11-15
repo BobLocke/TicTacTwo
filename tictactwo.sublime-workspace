@@ -1,0 +1,602 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tran",
+				"translation"
+			],
+			[
+				"defau",
+				"default_from"
+			],
+			[
+				"POLL",
+				"POLLMAIL_JSON_REGEX"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"P",
+				"POLLMAIL_FREQUENCY"
+			],
+			[
+				"set",
+				"settings"
+			],
+			[
+				"PO",
+				"POLLMAIL_USE_PASSWORD"
+			],
+			[
+				"pass",
+				"password"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 724,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 4521,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/index.html",
+			"settings":
+			{
+				"buffer_size": 2444,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/index.jade",
+			"settings":
+			{
+				"buffer_size": 238,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/error.html",
+			"settings":
+			{
+				"buffer_size": 1804,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/error.jade",
+			"settings":
+			{
+				"buffer_size": 194,
+				"line_ending": "Unix",
+				"name": "extends base.jade"
+			}
+		},
+		{
+			"file": "templates/hostedgame.html",
+			"settings":
+			{
+				"buffer_size": 9223,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/script/host.js",
+			"settings":
+			{
+				"buffer_size": 3381,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "feedback-havvy.md",
+			"settings":
+			{
+				"buffer_size": 4694,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/havvy/code/js/tennu/translate/package.json",
+			"settings":
+			{
+				"buffer_size": 685,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/base.jade",
+			"settings":
+			{
+				"buffer_size": 1294,
+				"line_ending": "Unix",
+				"name": "doctype html"
+			}
+		}
+	],
+	"build_system": "Packages/Elixir/elixir.sublime-build",
+	"command_palette":
+	{
+		"height": 52.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Add Repository"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/havvy/code/js/tennu/translate/package.json",
+		"/home/havvy/code/js/tic-tac-two/style.css",
+		"/home/havvy/code/js/tic-tac-two/static/style.css",
+		"/home/havvy/code/js/tennu/translate/LICENSE",
+		"/home/havvy/code/js/tennu/translate/readme.md",
+		"/home/havvy/code/js/tennu/translate/index.js",
+		"/home/havvy/code/foxyproxy/madcow/madcow/util/__init__.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/__init__.py",
+		"/home/havvy/code/foxyproxy/foxybot/madcow/protocol/irc.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/modules/twitter.py",
+		"/home/havvy/code/foxyproxy/foxybot/madcow/tasks/pollmail.py",
+		"/home/havvy/code/foxyproxy/foxybot/madcow/tasks/tweets.py",
+		"/home/havvy/code/foxyproxy/oldbot/data/settings.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/protocol/irc.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/modules/beer.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/modules/artfart.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/modules/nslookup.py",
+		"/home/havvy/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/havvy/code/foxyproxy/madcow/run-standalone-madcow",
+		"/home/havvy/code/foxyproxy/foxybot/madcow/modules/test.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/conf/defaults.py",
+		"/home/havvy/code/foxyproxy/foxybot/madcow/conf/defaults.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/tasks/pollmail.py",
+		"/home/havvy/code/foxyproxy/foxybot/madcow/modules/staff.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/modules/learn.py",
+		"/home/havvy/code/foxyproxy/madcow/madcow/modules/memebot.py",
+		"/home/havvy/pollmail.py",
+		"/home/havvy/code/foxyproxy/foxybot/setup.cfg",
+		"/home/havvy/code/foxyproxy/foxybot/setup.py",
+		"/home/havvy/code/elixir/simulation/lib/room.ex",
+		"/home/havvy/code/elixir/simulation/lib/simulation.ex",
+		"/home/havvy/code/elixir/simulation/lib/graph.ex"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"message",
+			"JSON",
+			"POLLMAIL_AUTOSTART",
+			"POLLMAIL_FREQUENCY",
+			"	",
+			"self.base",
+			"self.imap"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 8,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 724,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app.js",
+					"settings":
+					{
+						"buffer_size": 4521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								449,
+								449
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/index.html",
+					"settings":
+					{
+						"buffer_size": 2444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								461,
+								461
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "templates/index.jade",
+					"settings":
+					{
+						"buffer_size": 238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								238,
+								238
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "templates/error.html",
+					"settings":
+					{
+						"buffer_size": 1804,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1270,
+								1270
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "templates/error.jade",
+					"settings":
+					{
+						"buffer_size": 194,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								194,
+								194
+							]
+						],
+						"settings":
+						{
+							"auto_name": "extends base.jade",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "templates/hostedgame.html",
+					"settings":
+					{
+						"buffer_size": 9223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								730,
+								730
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "static/script/host.js",
+					"settings":
+					{
+						"buffer_size": 3381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								752,
+								752
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "feedback-havvy.md",
+					"settings":
+					{
+						"buffer_size": 4694,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1635,
+								1635
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/home/havvy/code/js/tennu/translate/package.json",
+					"settings":
+					{
+						"buffer_size": 685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "templates/base.jade",
+					"settings":
+					{
+						"buffer_size": 1294,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								920,
+								920
+							]
+						],
+						"settings":
+						{
+							"auto_name": "doctype html",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
