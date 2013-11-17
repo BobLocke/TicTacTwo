@@ -1,5 +1,5 @@
 {
-  "name": "tennu-translate",
+  "name": "TicTacTwo",
   "version": "1.0.0",
   "private": true,
   "description": "Tic Tac Two project for WSU Learning Project",
@@ -27,7 +27,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-	"jade": "*",
+    "jade": "*",
     "express": "3.4.4",
     "socket.io": "0.9.x",
     "sqlite3": "2.1.x"
