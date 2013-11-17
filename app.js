@@ -9,7 +9,7 @@ server.listen(8080);
 app.set("views", "./templates");
 app.set("view engine", "jade");
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/static"));
 app.use(express.bodyParser());
 app.use(app.router);
 
