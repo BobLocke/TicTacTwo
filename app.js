@@ -80,25 +80,6 @@ io.sockets.on('connection', function (socket) {
       console.log("New game created by " + username  + " with socket.id " + socket.id);
     });
 
-   // Listener for setting info for socket.id of player 2
-   socket.on('sendPlayer2ID', function(player1) {
-
-      // Set value
-      games_playing[player1][1] = [username, socket.id];
-      
-      
-    });
-   
-
-   
-   // Listener for request player 2 socket.id
-   socket.on('requestPlayer2ID', function(username) {
-    console.log("requestPlayer2ID " + games_playing[username][1][1]);
-
-      // Emit event to send player 1 socket.id
-      socket.emit('recievePlayer2ID', games_playing[username][1][1]);
-    });
-
 
   // Listener for join game, may be implemented later
   socket.on('joingame', function(player1, player2){

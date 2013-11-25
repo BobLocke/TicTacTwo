@@ -14,36 +14,7 @@
     <link href="game.css" rel="stylesheet" type="text/css" />
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-            <script>
-            var socket = io.connect('http://localhost:8080');
-            var username = window.name;
-            // When connection is made
-            socket.on('connect', function(){
-               
-               // Checks if any hosted games exist
-               socket.emit('checkhosted');
-            });
-            
-            // Gets event to update hosted game list
-            socket.on('updategames', function (games) {
-               var list = "";
-               for (x in games)
-                  list += "<a href='hostedgame.html' onClick='grabPlayer(\""+games[x]+"\")'> Play against " + games[x] + "</a><br>";
-               document.getElementById('games').innerHTML = list;
-            });
-            
-            function grabPlayer(player) {
-               window.name = window.name + "," + player;
-            }
-                    
-            $(function(){
-               // when the client clicks SEND
-               $('#addgame').click( function() {
-                  socket.emit('addgame', username);
-                  window.location.href="hostee.html";
-               });
-            });
-        </script>
+    <script src="hostgame.js"></script>
   </head>
 
   <!-- This section contains the "content" or "structure" of the page. -->

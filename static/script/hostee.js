@@ -130,9 +130,6 @@ socket.on('startGame', function(p2, p2id) {
 	alert("Player " + p2 + " has joined the game"); 
     });        
               
-socket.on('recievePlayer2ID', function(p2){
-	p2_id = p2;
-    });
               
 socket.on ('recieveMove', function(b) {
 	board = b;

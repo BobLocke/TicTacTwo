@@ -116,18 +116,12 @@ var socket = io.connect('http://172.16.96.3:8080');
 // Connect to server
 socket.on('connect', function(){
          
-	window.name = player2;
-         
 	// Get player1 socket.id and join game
 	socket.emit('joingame', player1, player2); 
 	document.getElementById('player1').innerHTML=player1;
 	document.getElementById('player2').innerHTML=player2;       
     });
-       
-    
-socket.on('recievePlayer1ID', function(p1){
-	p1_id = p1;
-    });
+
     
               
 socket.on ('recieveMove', function(b) {
