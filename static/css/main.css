@@ -1,6 +1,6 @@
 
 body         {background-color:#FF6600;
-			  background-image:url(orange-background1.jpg);
+			  background-image:url(/img/orange-background1.jpg);
               color:#000000;
 			  width:960px;
 			  margin:auto;}
@@ -32,7 +32,7 @@ body         {background-color:#FF6600;
 h1, h2      {color:#653366;
 			  border:double 5px #ff6600;
 			  background-color:#653366;
-			  background-image:url(texture_orange_3228.jpg);
+			  background-image:url(/img/texture_orange_3228.jpg);
 			  font-family:Century, Garamond;
               text-align:center;
 			  padding:10px;}
