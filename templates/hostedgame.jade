@@ -1,0 +1,66 @@
+extends base.jade
+
+block titlebar
+    | Hope you brought a friend: It's Hotseat Multiplayer!'
+
+block content
+    center
+        form(name="game")
+            table(border="0")
+                td
+                    table(border="1")
+                        tr
+                            td
+                                a(href="javascript:play('A')")
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="A", alt="Top-Left")
+                            td
+                                a(href="javascript:play('B')")
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="B", alt="Top-Center")
+                            td
+                                a(href="javascript:play('C')")
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="C", alt="Top-Right")
+
+                        tr
+                            td
+                                a(href="javascript:play('D')")
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="D", alt="Middle-Left")
+                            td
+                                a(href="javascript:play('E')")
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="E", alt="Middle-Center")
+                            td
+                                a(href="javascript:play('F')")
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="F", alt="Middle-Right")
+
+                        tr
+                            td
+                                a(href="javascript:play('G')")
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="G", alt="Bottom-Left")
+                            td
+                                a(href="javascript:play('H')")
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="H", alt="Bottom-Center")
+                            td
+                                a(href="javascript:play('I')")
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="I", alt="Bottom-Right")
+
+                                    img(src="blank.jpg", border="0", height="100", width="100", name="A", alt="Top-Left")
+
+                td
+                    table
+                        tr
+                            td
+                                input(type="text", size="5", name="P1")
+                            td#player1
+                                | Player 1
+                        tr
+                            td
+                                input(type="text", size="5", name="P2")
+                            td#player1
+                                | Player 2
+
+                    input(type="button", value="Play Again", onclick="playAgain();")
+
+                    | &nbsp;&nbsp;
+
+                    input(type="button", value="Game Help", onclick="help();")
+
+                    <!-- <input type=button value="Quit Game" onClick="quitGame();"> -->
