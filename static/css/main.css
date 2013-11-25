@@ -1,6 +1,6 @@
 
 body         {background-color:#FF6600;
-			  background-image:url(/img/orange-background1.jpg);
+			  background-image:url(../img/background.jpg);
               color:#000000;
 			  width:960px;
 			  margin:auto;}
@@ -32,7 +32,7 @@ body         {background-color:#FF6600;
 h1, h2      {color:#653366;
 			  border:double 5px #ff6600;
 			  background-color:#653366;
-			  background-image:url(/img/texture_orange_3228.jpg);
+			  background-image:url(../img/texture_orange_3228.jpg);
 			  font-family:Century, Garamond;
               text-align:center;
 			  padding:10px;}
@@ -71,7 +71,7 @@ p           {color:#000000;}
 #linkbar a {text-decoration:none;
 		font-size:small;
 		padding-right:10px;}
-table { border:double 5px #653366;
+table { border:0;
 	border-collapse:collapse;
 	margin-top:50px;
 	margin-bottom:50px;}
@@ -80,7 +80,7 @@ td img {width:150px;
 		margin:10px;
 		display:block;}
 td {padding:10px;
-  border-bottom:double 5px #653366;
+  border-bottom:0;
   border-spacing:0;
   border-collapse:collapse;}
 .boxlist {list-style-type: square;}

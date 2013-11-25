@@ -1,0 +1,20 @@
+extends base.jade
+
+block titlebox
+    | Check Win/Loss Records
+
+block content
+    p
+        |To check a player's Win/Loss records, enter their username below and click the shiny button.
+    #form1
+        form(action="", method="post")
+            table(width="100%")
+                tr
+                    td
+                        |Username:
+                    td
+                        input (type="text", size="40", maxlength="30", name="Username")
+                tr    
+                    td.nobotpad
+                        input(type="Submit", value="Check Records")
+        #clear

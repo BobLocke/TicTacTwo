@@ -1,0 +1,31 @@
+extends base.jade
+
+
+block titlebox
+    |Log in to Tic Tac Two!
+
+block content
+    p
+        |If you already have an account, login with your username and password.
+        
+        |If you do not have an account, enter your desired username and password and click 'register'.
+
+        #form1
+            form(action="/login", method="post")
+                table(width="100%")
+                    tr
+                        td.nobot
+                            |Username:
+                        td.nobot
+                            input(type="text", size="40", maxlength="30", name="username")
+                    tr
+                        td.nobot
+                            |Password:
+                        td.nobot
+                            input(type="text", size="40", maxlength="128", name="password")
+                    tr
+                        td.nobotpad
+                            input(type="submit", value="Login")
+                        td.nobot
+                            input(type="reset"  value="Register")
+        #clear
