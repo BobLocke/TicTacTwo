@@ -13,7 +13,8 @@ html
             a(href="/")
                 img(src="/img/logo2.png", alt="The logo for Tic Tac Two.")
             #titlebox
-                h2=titlebox
+                h2
+                    block titlebox
         #clear
         #wrapper
             #navigation
@@ -34,4 +35,5 @@ html
             a(href="/records")="Check Records"
             | &nbsp;&nbsp&nbsp;
             a(href="/about")="About Us"
-        #copyright= !"&copy; 2013 Apathy"
+        #copyright
+            | &copy; 2013 Apathy
