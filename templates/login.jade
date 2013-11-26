@@ -27,5 +27,8 @@ block content
                         td.nobotpad
                             input(type="submit", value="Login")
                         td.nobot
-                            input(type="reset"  value="Register")
+                            input(type="submit", value="Register")
+                    if flash
+                        tr
+                            td#flash=flash
         #clear

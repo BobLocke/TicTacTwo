@@ -11,6 +11,8 @@ app.set("view engine", "jade");
 
 app.use(express.static(__dirname + "/static"));
 app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(require('./lib/loggedin-middleware'))
 app.use(app.router);
 
 app.get('/', function(req, res) {
@@ -19,7 +21,9 @@ app.get('/', function(req, res) {
 app.get('/live', function(req, res) {
   res.render('tictactwo', {title:"Play Offline", script:"/script/game.js"});
 });
-//app.post('/login', require("./routes/login"));
+
+app.post('/login', require("./routes/login"));
+
 app.get('/login', function(req, res) {
   res.render('login', {title:"Login"});
 });
