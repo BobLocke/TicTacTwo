@@ -23,7 +23,7 @@ app.get('/tictactwo', function(req, res) {
 app.get('/login', function(req, res) {
   res.render('login', {title:"Login"});
 });
-app.get('/hostgame', function(req, res) {
+app.get('/lobby', function(req, res) {
   res.render('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"});
 });
 app.get('/aboutus', function(req, res) {
@@ -31,6 +31,10 @@ app.get('/aboutus', function(req, res) {
 });
 app.get('/records', function(req, res) {
   res.render('records', {title:"Check Player Scores"});
+});
+
+app.get('/hosted', function(req, res) {
+  res.render('hostedgame', {title:"", script:"/script/hostedgame.js"})
 });
 
 
