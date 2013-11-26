@@ -15,35 +15,23 @@ app.use(express.cookieParser());
 app.use(require('./lib/loggedin-middleware'))
 app.use(app.router);
 
-app.get('/', function(req, res) {
-  res.render('index', {title:"Welcome"});
-});
-app.get('/live', function(req, res) {
-  res.render('tictactwo', {title:"Play Offline", script:"/script/game.js"});
-});
+function wizards (template, args) {
+  return function (req, res) {
+    args.loggedin = req.loggedin;
 
+    res.render(template, args);
+  }
+}
+
+app.get('/', wizards('index', {title:"Welcome"});
+app.get('/live', wizards('tictactwo', {title:"Play Offline", script:"/script/game.js"});
 app.post('/login', require("./routes/login"));
-
-app.get('/login', function(req, res) {
-  res.render('login', {title:"Login"});
-});
-app.get('/lobby', function(req, res) {
-  res.render('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"});
-});
-app.get('/aboutus', function(req, res) {
-  res.render('aboutus', {title:"About the Game"});
-});
-app.get('/records', function(req, res) {
-  res.render('records', {title:"Check Player Scores"});
-});
-
-app.get('/onlinegame/hosted', function(req, res) {
-  res.render('onlinegame', {title:"Now Playing Online", script:"/script/hostedgame.js"})
-});
-
-app.get('/onlinegame/hostee', function(req, res) {
-  res.render('onlinegame', {title:"Now Playing Online", script:"/script/hostee.js"})
-});
+app.get('/login', wizards('login', {title:"Login"});
+app.get('/lobby', wizards('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"});
+app.get('/aboutus', wizards('aboutus', {title:"About the Game"});
+app.get('/records', wizards('records', {title:"Check Player Scores"});
+app.get('/onlinegame/hosted', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostedgame.js"});
+app.get('/onlinegame/hostee', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostee.js"});
 
 
 var clientid = []; // player1 socket.id => [p1 socket.id, p2, p2 socket.id]
