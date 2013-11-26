@@ -19,9 +19,9 @@ var p2_id;
       
 // Player 2 therefore player 1 will start
 var myTurn = false;
-      var x = "x.jpg"
-      var o = "o.jpg"
-      var blank = "blank.jpg"
+      var x = "/img/x.jpg"
+      var o = "/img/o.jpg"
+      var blank = "/img/blank.jpg"
 	  var winner = 0; // 0 - none, 1 - player 1, 2 - player 2
 var board = [0,0,0,0,0,0,0,0,0];
       

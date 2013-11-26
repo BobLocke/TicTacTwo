@@ -16,7 +16,7 @@ app.use(app.router);
 app.get('/', function(req, res) {
   res.render('index', {title:"Welcome"});
 });
-app.get('/tictactwo', function(req, res) {
+app.get('/live', function(req, res) {
   res.render('tictactwo', {title:"Play Offline", script:"/script/game.js"});
 });
 //app.post('/login', require("./routes/login"));
@@ -33,8 +33,12 @@ app.get('/records', function(req, res) {
   res.render('records', {title:"Check Player Scores"});
 });
 
-app.get('/hosted', function(req, res) {
-  res.render('hostedgame', {title:"", script:"/script/hostedgame.js"})
+app.get('/onlinegame/hosted', function(req, res) {
+  res.render('onlinegame', {title:"Now Playing Online", script:"/script/hostedgame.js"})
+});
+
+app.get('/onlinegame/hostee', function(req, res) {
+  res.render('onlinegame', {title:"Now Playing Online", script:"/script/hostee.js"})
 });
 
 

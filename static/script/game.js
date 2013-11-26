@@ -1,7 +1,7 @@
 $(function () {
- var x = "x.jpg"
-      var o = "o.jpg"
-      var blank = "blank.jpg"
+ var x = "/img/x.jpg"
+      var o = "/img/o.jpg"
+      var blank = "/img/blank.jpg"
       var winner = 0; // 0 - none, 1 - player 1, 2 - player 2
       var board = [0,0,0,0,0,0,0,0,0];
       
@@ -66,7 +66,15 @@ $(function () {
   }
   
   function updateBoard() {
-      
+    for(var i = 0; i < 9; i++) {
+      console.log(board[i]);
+      if(board[i] == 1)
+        document.images[String.fromCharCode(i + 65)].src = x;
+      else if (board[i] == 2)
+        document.images[String.fromCharCode(i + 65)].src = o;
+      else
+        document.images[String.fromCharCode(i + 65)].src = blank;
+    }    
   }
   
   function playAgain() {

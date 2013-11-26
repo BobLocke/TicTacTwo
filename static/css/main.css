@@ -75,8 +75,7 @@ table { border:0;
 	border-collapse:collapse;
 	margin-top:50px;
 	margin-bottom:50px;}
-td img {width:150px;
-		text-align:center;
+td img {text-align:center;
 		margin:10px;
 		display:block;}
 td {padding:10px;
@@ -90,3 +89,4 @@ td {padding:10px;
 .nobotpad{padding-left:150px;
 			border-bottom:0;}
 .pad {padding-left:150px;}
+.game td {border:1px solid black;}
