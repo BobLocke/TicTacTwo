@@ -11,35 +11,27 @@ app.set("view engine", "jade");
 
 app.use(express.static(__dirname + "/static"));
 app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(require('./lib/loggedin-middleware'))
 app.use(app.router);
 
-app.get('/', function(req, res) {
-  res.render('index', {title:"Welcome", script:"/script/index.js"});
-});
-app.get('/live', function(req, res) {
-  res.render('tictactwo', {title:"Play Offline", script:"/script/game.js"});
-});
-//app.post('/login', require("./routes/login"));
-app.get('/login', function(req, res) {
-  res.render('login', {title:"Login"});
-});
-app.get('/lobby', function(req, res) {
-  res.render('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"});
-});
-app.get('/aboutus', function(req, res) {
-  res.render('aboutus', {title:"About the Game"});
-});
-app.get('/records', function(req, res) {
-  res.render('records', {title:"Check Player Scores"});
-});
+function wizards (template, args) {
+  return function (req, res) {
+    args.loggedin = req.loggedin;
 
-app.get('/onlinegame/hosted', function(req, res) {
-  res.render('onlinegame', {title:"Now Playing Online", script:"/script/hostedgame.js"})
-});
+    res.render(template, args);
+  }
+}
 
-app.get('/onlinegame/hostee', function(req, res) {
-  res.render('onlinegame', {title:"Now Playing Online", script:"/script/hostee.js"})
-});
+app.get('/', wizards('index', {title:"Welcome"});
+app.get('/live', wizards('tictactwo', {title:"Play Offline", script:"/script/game.js"});
+app.post('/login', require("./routes/login"));
+app.get('/login', wizards('login', {title:"Login"});
+app.get('/lobby', wizards('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"});
+app.get('/aboutus', wizards('aboutus', {title:"About the Game"});
+app.get('/records', wizards('records', {title:"Check Player Scores"});
+app.get('/onlinegame/hosted', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostedgame.js"});
+app.get('/onlinegame/hostee', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostee.js"});
 
 
 var clientid = []; // player1 socket.id => [p1 socket.id, p2, p2 socket.id]
@@ -115,6 +107,9 @@ io.sockets.on('connection', function (socket) {
     io.sockets.socket(id).emit('recieveMove', b);
   });
 
+  socket.on('gameOver', function(p1) {
+    games_playing.splice(player1, 1);
+  });
 
   // Listener for disconnection
   socket.on('disconnect', function(){

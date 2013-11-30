@@ -110,8 +110,8 @@ function checkPlay() {
       
       
 }
- var socket = io.connect('http://localhost:8080');
-//var socket = io.connect('http://172.16.96.3:8080');
+// var socket = io.connect('http://localhost:8080');
+var socket = io.connect('http://172.16.96.3:8080');
     
 socket.on('connect', function(){
          
@@ -135,12 +135,14 @@ socket.on ('recieveMove', function(b) {
 	board = b;
 	myTurn = !myTurn;
 	updateBoard();
+	if (checkWin())
+            socket.emit('gameOver', player1);
     });
               
 socket.on('playerDisconnected', function() {
 	if (winner == 0) {
 	    alert(player2 + " has disconnected");
-	    window.location.href="/";
+	    window.location.href="index.html";
 	}
     });    
                 
