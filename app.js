@@ -107,10 +107,6 @@ io.sockets.on('connection', function (socket) {
     io.sockets.socket(id).emit('recieveMove', b);
   });
 
-  socket.on('gameOver', function(p1) {
-    games_playing.splice(player1, 1);
-  });
-
   // Listener for disconnection
   socket.on('disconnect', function(){
 

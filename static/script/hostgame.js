@@ -15,8 +15,8 @@ socket.on('connect', function(){
 socket.on('updategames', function (games) {
 	var list = "";
 	for (x in games)
-	    list += "<a href='/onlinegame/hosted' onClick='grabPlayer(\""+games[x]+"\")'> Play against " + games[x] + "</a><br>";
-	document.getElementById('games').innerHTML = list;
+	    list += "<a href='/onlinegame/hosted' onclick='window.sessionStorage.opponent = \"" +
+            games[x]+"\";'> Play against " + games[x] + "</a><br>";
     });
             
 function grabPlayer(player) {

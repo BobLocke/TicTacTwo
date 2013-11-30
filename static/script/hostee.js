@@ -135,8 +135,6 @@ socket.on ('recieveMove', function(b) {
 	board = b;
 	myTurn = !myTurn;
 	updateBoard();
-	if (checkWin())
-            socket.emit('gameOver', player1);
     });
               
 socket.on('playerDisconnected', function() {
