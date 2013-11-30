@@ -7,7 +7,6 @@ function validate(username, password) {
 function refresh (res, flash) {res.render('login', {title: "Log In", flash: flash})};
 
 module.exports=function(req, res) {
-	console.log(require('util').inspect(req.body));
 	//req.body.username
 	//req.body.password
 	//req.body.login
@@ -16,8 +15,8 @@ module.exports=function(req, res) {
   		return refresh(res, "Name or Password Incorrently Formatted");
 	}
 	
-	if (req.body.Login){
-		db.login(req.body.username, req.body.password, function(err,res) {
+	if (req.body.login){
+		db.login(req.body.username, req.body.password, function(err,loggedin) {
 			if (err){
 				return refresh(res, err);
 			}
@@ -26,8 +25,8 @@ module.exports=function(req, res) {
 			
 		});
 	}
-	else if (req.body.Register){
-		db.register(req.body.username, req.body.password, function(err,res) {
+	else if (req.body.register){
+		db.register(req.body.username, req.body.password, function(err,registered) {
 			if(err){ 
 				return refresh(res, err);
 			}

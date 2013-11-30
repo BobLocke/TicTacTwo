@@ -55,38 +55,41 @@ p           {color:#000000;}
 .rightblock img {width:100%;}
 .leftblock   {width:290px;
               float:left;
-              margin-top:10px;
-              margin-left:10px;}
+    margin-top:10px;
+    margin-left:10px;}
 .lefblock img {width:100%;}
 #copyright{margin: 0 auto 0 auto; 
-				text-align:center;
-				 width:700px;}
+	text-align:center;
+	width:700px;}
 .purpletext {font-family:Georgia;
-				font-size:small;
-				color:#653366;}
+	font-size:small;
+	color:#653366;}
 .underline {text-decoration: underline;}
 .thejustified{text-align:justify;}
 .theright{text-align:right;}
 #linkbar{text-align:center;}
 #linkbar a {text-decoration:none;
-		font-size:small;
-		padding-right:10px;}
+	font-size:small;
+	padding-right:10px;}
 table { border:0;
-	border-collapse:collapse;
-	margin-top:50px;
-	margin-bottom:50px;}
+	border-collapse:collapse;}
 td img {text-align:center;
-		margin:10px;
-		display:block;}
-td {padding:10px;
-  border-bottom:0;
-  border-spacing:0;
-  border-collapse:collapse;}
+	margin:10px;
+	display:block;}
+td {border-bottom:0;
+    border-spacing:0;
+    border-collapse:collapse;}
 .boxlist {list-style-type: square;}
 .center {text-align:center;}
 .nobot{border-bottom:0;}
 .notop{border-top:0;}
 .nobotpad{padding-left:150px;
-			border-bottom:0;}
+	border-bottom:0;}
 .pad {padding-left:150px;}
 .game td {border:1px solid black;}
+
+#flash {
+    font-size:64px;
+    font-family:Georgia, serif;
+    color:#653366;
+}

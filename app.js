@@ -23,16 +23,16 @@ function wizards (template, args) {
   }
 }
 
-app.get('/', wizards('index', {title:"Welcome"});
-app.get('/live', wizards('tictactwo', {title:"Play Offline", script:"/script/game.js"});
+app.get('/', wizards('index', {title:"Welcome", script:"/script/index.js"}));
+app.get('/live', wizards('tictactwo', {title:"Play Offline", script:"/script/game.js"}));
 app.post('/login', require("./routes/login"));
-app.get('/login', wizards('login', {title:"Login"});
-app.get('/lobby', wizards('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"});
-app.get('/aboutus', wizards('aboutus', {title:"About the Game"});
-app.get('/records', wizards('records', {title:"Check Player Scores"});
-app.get('/onlinegame/hosted', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostedgame.js"});
-app.get('/onlinegame/hostee', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostee.js"});
-
+app.get('/login', wizards('login', {title:"Login"}));
+app.get('/lobby', wizards('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"}));
+app.get('/aboutus', wizards('aboutus', {title:"About the Game"}));
+app.get('/records', wizards('records', {title:"Check Player Scores"}));
+app.get('/onlinegame/hosted', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostedgame.js"}));
+app.get('/onlinegame/hostee', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostee.js"}));
+app.get('/logout', require("./routes/logout"));
 
 var clientid = []; // player1 socket.id => [p1 socket.id, p2, p2 socket.id]
 var usernames = {}; // Map of users currently online

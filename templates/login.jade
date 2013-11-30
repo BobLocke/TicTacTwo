@@ -25,10 +25,10 @@ block content
                             input(type="text", size="40", maxlength="128", name="password")
                     tr
                         td.nobotpad
-                            input(type="submit", value="Login")
+                            input(type="submit", value="Login", name="login")
                         td.nobot
-                            input(type="submit", value="Register")
+                            input(type="submit", value="Register", name="register")
                     if flash
-                        tr
-                            td#flash=flash
+                        tr(colspan="2")
+                            td#error=flash
         #clear

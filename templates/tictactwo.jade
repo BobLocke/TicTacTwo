@@ -4,61 +4,53 @@ block titlebox
     | Hope you brought a friend: It's Hotseat Multiplayer!
 
 block content
-    center
-        form(name="game")
-            table(border="0")
-                td
-                    table.game
-                        tr
-                            td
-                                a(href="javascript:play('A')")
-                                    img(src="/img/blank.jpg", border="0", height="100", width="100", name="A", alt="Top-Left")
-                            td
-                                a(href="javascript:play('B')")
-                                    img(src="/img/blank.jpg", border="0", height="100", width="100", name="B", alt="Top-Center")
-                            td
-                                a(href="javascript:play('C')")
-                                    img(src="/img/blank.jpg", border="0", name="C", alt="Top-Right")
+    form(name="game", style="text-align:center")
+        table(border="0")
+            td
+                table.game
+                    tr
+                        td
+                            img(src="/img/blank.jpg", border="0", height="100", width="100", data-name="0", alt="Top-Left")
+                        td
+                            img(src="/img/blank.jpg", border="0", height="100", width="100", data-name="1", alt="Top-Center")
+                        td
+                            img(src="/img/blank.jpg", border="0", height="100", width="100", data-name="2", alt="Top-Right")
 
-                        tr
-                            td
-                                a(href="javascript:play('D')")
-                                    img(src="/img/blank.jpg", border="0", height="100", width="100", name="D", alt="Middle-Left")
-                            td
-                                a(href="javascript:play('E')")
-                                    img(src="/img/blank.jpg", border="0", height="100", width="100", name="E", alt="Middle-Center")
-                            td
-                                a(href="javascript:play('F')")
-                                    img(src="/img/blank.jpg", border="0", height="100", width="100", name="F", alt="Middle-Right")
+                    tr
+                        td
+                            img(src="/img/blank.jpg", border="0", height="100", width="100", data-name="3", alt="Middle-Left")
+                        td
+                            img(src="/img/blank.jpg", border="0", height="100", width="100", data-name="4", alt="Middle-Center")
+                        td
+                            img(src="/img/blank.jpg", border="0", height="100", width="100", data-name="5", alt="Middle-Right")
 
-                        tr
-                            td
-                                a(href="javascript:play('G')")
-                                    img(src="/img/blank.jpg", border="0", height="100", width="100", name="G", alt="Bottom-Left")
-                            td
-                                a(href="javascript:play('H')")
-                                    img(src="/img/blank.jpg", border="0", height="100", width="100", name="H", alt="Bottom-Center")
-                            td
-                                a(href="javascript:play('I')")
-                                    img(src="/img/blank.jpg", border="0", height="100", width="100", name="I", alt="Bottom-Right")
+                    tr
+                        td
+                            img(src="/img/blank.jpg", border="0", height="100", width="100", data-name="6", alt="Bottom-Left")
+                        td
+                            img(src="/img/blank.jpg", border="0", height="100", width="100", data-name="7", alt="Bottom-Center")
+                        td
+                            img(src="/img/blank.jpg", border="0", height="100", width="100", data-name="8", alt="Bottom-Right")
 
-                td
-                    table
-                        tr
-                            td
-                                input(type="text", size="5", name="P1")
-                            td#player1
-                                | Player 1
-                        tr
-                            td
-                                input(type="text", size="5", name="P2")
-                            td#player1
-                                | Player 2
+            td
+                table
+                    tr
+                        td
+                            span#p1-score 0
+                            | &nbsp;wins
+                        td#p1-name
+                            input(type="text", size="12", name="p1", value="Player 1")
+                    tr
+                        td
+                            span#p2-score 0
+                            | &nbsp;wins
+                        td#p2-name
+                            input(type="text", size="12", name="p2", value="Player 2")
 
-                    input(type="button", value="Play Again", onclick="playAgain();")
+                button(type="button", name="replay") Play Again
 
-                    | &nbsp;&nbsp;
+                | &nbsp;&nbsp;
 
-                    input(type="button", value="Game Help", onclick="help();")
+                button(type="button", name="help") Game Help
 
-                    <!-- <input type=button value="Quit Game" onClick="quitGame();"> -->
+        #flash

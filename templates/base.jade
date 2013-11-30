@@ -19,7 +19,10 @@ html
         #clear
         #wrapper
             #navigation
-                a(href="/login")="Login"
+                if !loggedin
+                    a(href="/login")="Login"
+                else
+                    a(href="/logout")="Logout"
                 a(href="/live")="Hot Seat Multiplayer"
                 a(href="/lobby")="Host Online Game"
                 a(href="/records")="Check Records"
@@ -27,7 +30,10 @@ html
         #maincontent
             block content
         #linkbar
-            a(href="/login")="Login"
+            if !loggedin
+                a(href="/login")="Login"
+            else
+                a(href="/logout")="Logout"
             | &nbsp;&nbsp&nbsp;
             a(href="/live")="Hot Seat Multiplayer"
             | &nbsp;&nbsp&nbsp;
