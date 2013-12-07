@@ -31,7 +31,7 @@ module.exports=function(req, res) {
 				return refresh(res, err);
 			}
 			res.cookie('loggedin', req.body.username);
-			res.render('index', {title:"Welcome " + req.body.username});
+                    res.render('index', {title:"Welcome " + req.body.username, script:"../script/index.js"});
 		});
 
 	} else {

@@ -1,7 +1,6 @@
 
-      var socket = io.connect('http://localhost:8080');
-      
-window.sessionStorage.username = document.cookie.loggedin;
+var parts = document.cookie.split("=");
+window.sessionStorage.username = parts[1].replace("%20", " ");
 // Get socket connected
 socket.on('connect', function(){
 	console.log("socket id " + socket.id);

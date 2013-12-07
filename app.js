@@ -30,7 +30,7 @@ app.get('/login', wizards('login', {title:"Login"}));
 app.get('/lobby', wizards('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"}));
 app.get('/aboutus', wizards('aboutus', {title:"About the Game"}));
 app.get('/records', wizards('records', {title:"Check Player Scores"}));
-app.get('/onlinegame/hosted', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostedgame.js"}));
+app.get('/onlinegame/hosted', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hosted.js"}));
 app.get('/onlinegame/hostee', wizards('onlinegame', {title:"Now Playing Online", script:"/script/hostee.js"}));
 app.get('/logout', require("./routes/logout"));
 

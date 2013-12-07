@@ -26,7 +26,7 @@ var P2_moves = new Array();
       
 var startPlayer = 2;
 var curPlayer = 1;
-      
+
       
 function help() {
     alert("Welcome to Tic-Tac-Two!  No help yet")
@@ -38,13 +38,13 @@ function checkWin() {
 	winner = 1;
 	win_P1++;
 	document.game.P1.value = win_P1;
-	alert("You won!");
+	$("#flash").html("You won");
 	return true;
     } else if ((board[0] == 2 && board[1] == 2 && board[2] == 2) || (board[0] == 2 && board[3] == 2 && board[6] == 2) || (board[6] == 2 && board[7] == 2 && board[8] == 2) || (board[2] == 2 && board[5] == 2 && board[8] == 2) || (board[0] == 2 && board[4] == 2 && board[8] == 2) || (board[2] == 2 && board[4] == 2 && board[6] == 2) || (board[1] == 2 && board[4] == 2 && board[7] == 2) || (board[3] == 2 && board[4] == 2 && board[5] == 2)) {
 	winner = 2;
 	win_P2++;
 	document.game.P2.value = win_P2;
-	alert(player2 + " won");
+	$("#flash").html(player2 + " won");
 	return true;
     }
     return false;
@@ -62,7 +62,8 @@ function  play(field) {
 	}
 	document.images[field].src = x;
 	curPlayer++;
-	myTurn = !myTurn;    
+	myTurn = !myTurn;
+        $("#flash").html(player2 + "'s turn");
 	socket.emit('sendMove', p2_id, board);
 	checkWin();
     }
@@ -110,8 +111,7 @@ function checkPlay() {
       
       
 }
-// var socket = io.connect('http://localhost:8080');
-var socket = io.connect('http://172.16.96.3:8080');
+
     
 socket.on('connect', function(){
          
@@ -127,7 +127,8 @@ socket.on('startGame', function(p2, p2id) {
 	p2_id = p2id;
 	gameStarted = true;
 	document.getElementById('player2').innerHTML=player2;
-	alert("Player " + p2 + " has joined the game"); 
+	$("#flash").html("Player " + p2 + " has joined the game, start at any time");
+          //alert("Player " + p2 + " has joined the game");
     });        
               
               
@@ -135,12 +136,18 @@ socket.on ('recieveMove', function(b) {
 	board = b;
 	myTurn = !myTurn;
 	updateBoard();
+    $("#flash").html("Your turn");
+           checkWin();
     });
               
 socket.on('playerDisconnected', function() {
 	if (winner == 0) {
-	    alert(player2 + " has disconnected");
-	    window.location.href="index.html";
-	}
+          $("#flash").html(player2 + " has disconnected");
+          winner = 1;
+	    //alert(player2 + " has disconnected");
+	    //window.location.href="/";
+          }  else {
+          $("#flash").append("<br>" + player2 + " has disconnected");
+          }
     });    
                 

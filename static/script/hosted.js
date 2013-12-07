@@ -49,12 +49,13 @@ function checkWin() {
 	winner = 1;
 	win_P1++;
 	document.game.P1.value = win_P1;
-	alert(player1 + " won");
+	$("#flash").html(player1 + " won");
     } else if ((board[0] == 2 && board[1] == 2 && board[2] == 2) || (board[0] == 2 && board[3] == 2 && board[6] == 2) || (board[6] == 2 && board[7] == 2 && board[8] == 2) || (board[2] == 2 && board[5] == 2 && board[8] == 2) || (board[0] == 2 && board[4] == 2 && board[8] == 2) || (board[2] == 2 && board[4] == 2 && board[6] == 2) || (board[1] == 2 && board[4] == 2 && board[7] == 2) || (board[3] == 2 && board[4] == 2 && board[5] == 2)) {
 	winner = 2;
 	win_P2++;
 	document.game.P2.value = win_P2;
-	alert("You won");
+	
+        $("#flash").html("You won");
     }
 }
   
@@ -70,7 +71,8 @@ function  play(field) {
 	}
 	document.images[field].src = o;
 	curPlayer--;
-	myTurn = !myTurn; 
+	myTurn = !myTurn;
+        $("#flash").html(player1 + "'s turn");
 	socket.emit('sendMove', p1_id, board);
 	checkWin();
     }
@@ -110,8 +112,7 @@ function playAgain() {
     document.images.I.src= blank;
 }
   
-// var socket = io.connect('http://localhost:8080');
-var socket = io.connect('http://172.16.96.3:8080');
+
     
 // Connect to server
 socket.on('connect', function(){
@@ -119,8 +120,13 @@ socket.on('connect', function(){
 	// Get player1 socket.id and join game
 	socket.emit('joingame', player1, player2); 
 	document.getElementById('player1').innerHTML=player1;
-	document.getElementById('player2').innerHTML=player2;       
+	document.getElementById('player2').innerHTML=player2;
+          $("#flash").html(player1 + "'s turn");
     });
+
+socket.on('recievePlayer1ID', function(p1){
+          p1_id = p1;
+          });
 
     
               
@@ -128,13 +134,18 @@ socket.on ('recieveMove', function(b) {
 	board = b;
 	myTurn = !myTurn;
 	updateBoard();
+           $("#flash").html("Your turn");
 	checkWin();
     });
               
 socket.on('playerDisconnected', function() {
 	if(winner == 0) {
-	    alert(player1 + " has disconnected");
-	    window.location.href="index.html";
-	}
+          $("#flash").html(player1 + " has disconnected");
+          winner = 2;
+	    //alert(player1 + " has disconnected");
+	    //window.location.href="/";
+          } else {
+            $("#flash").append("<br>" + player1 + " has disconnected");
+          }
     });    
                  
