@@ -1,8 +1,8 @@
-var express = require('express')
-, app = express()
-, http = require('http')
-, server = http.createServer(app)
-, io = require('socket.io').listen(server);
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const io = require('socket.io').listen(server);
 
 server.listen(8080);
 
@@ -12,7 +12,7 @@ app.set("view engine", "jade");
 app.use(express.static(__dirname + "/static"));
 app.use(express.bodyParser());
 app.use(express.cookieParser());
-app.use(require('./lib/loggedin-middleware'))
+app.use(require('./lib/loggedin-middleware'));
 app.use(app.router);
 
 function wizards (template, args) {
