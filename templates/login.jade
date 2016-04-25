@@ -1,7 +1,7 @@
 extends base.jade
 
 <?php
-$database = new PDO ('mysql:host=localhost; dbname=VirtualEduactionDatabase; charset=utf8', 'Justin', 'Bathroom1!', array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$database = new PDO ('mysql:host=160.153.72.35; dbname=VirtualEduactionDatabase; charset=utf8', 'Justin', 'Bathroom1!', array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $username = trim($ REQUEST['username']);
 $password = trim($ REQUEST['password']);
 $login = trim($ REQUEST['login']);
