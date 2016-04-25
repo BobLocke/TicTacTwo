@@ -1,0 +1,20 @@
+SCREEN
+
+screen -S new-screen-name # Creates a new screen with that name.
+Screen -r screen-name # Opens an already open screen by that name.
+screen -d # Detaches the current screen.
+screen -list # Lists the screens for your user.
+
+HTOP
+
+F10 # Quit
+F9  # Kill (Use SIGKILL 9)
+Up/Down arrows to move around.
+Process is probably called "node app.js"
+
+NIX
+
+nix-env -iA nixpkgs.foobar # Installs foobar
+nix-env -uA nixpkgs.foobar # Upgrades foobar
+nix-env -q # Query (show your installed programs)
+nix-env -e foobar # Uninstalls foobar  
