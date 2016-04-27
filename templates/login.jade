@@ -1,31 +1,5 @@
 extends base.jade
 
-<?php
-$database = new PDO ('mysql:host=160.153.72.35; dbname=VirtualEduactionDatabase; charset=utf8', 'Justin', 'Bathroom1!', array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-$username = trim($ REQUEST['username']);
-$password = trim($ REQUEST['password']);
-$login = trim($ REQUEST['login']);
-$register = trim($ REQUEST['register']);
-
-if(isset($ POST['register'])){
-    if(!filled_out($ POST))
-    echo 'Please enter username and password.';
-    else {
-        ['username'] = $username;
-        ['password'] = $password;
-        $query = $database->prepare("INSERT INTO 'bobregister' (username, password) VALUES (?, ?)");
-        try{
-        $query->execute(array($username, $password));
-        echo 'Registration successful';
-        } catch PDOexception $e{
-            echo 'An error occured! ' . $e->getMessage();
-            return;
-        }
-    }
-}
-
-?>
-
 block titlebox
     |Log in to Tic Tac Two!
 
