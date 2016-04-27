@@ -24,7 +24,7 @@ function wizards (template, args) {
 }
 
 app.get('/', wizards('index', {title:"Welcome", script:"/script/index.js"}));
-app.get('/live', wizards('tictactwo', {title:"Play Offline", script:"/script/game.js"}));
+app.get('/live', wizards('live', {title:"Play Offline", scripts:["/script/game.js", "/script/SPcontroller.js"]}));
 app.post('/login', require("./routes/login"));
 app.get('/login', wizards('login', {title:"Login"}));
 app.get('/lobby', wizards('hostgame', {title:"Host or Join a Game", script:"/script/hostgame.js"}));

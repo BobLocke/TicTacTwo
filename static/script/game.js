@@ -1,104 +1,53 @@
-$(function () {
-  var x = "/img/x.jpg"
-  var o = "/img/o.jpg"
-  var blank = "/img/blank.jpg"
-  var winner = 0; // 0 - none, 1 - player 1, 2 - player 2
-  var board = [0,0,0,0,0,0,0,0,0];
+ // Base TTT Core
+ //MAKE SURE game.js in lib and static/script are in sync!
 
-  var field;
-  var $board = $(".game");
-  var $images = $(".game img");
+//game.js handles:
+//board storage
+//move validation
+//informs players of victory
 
-  var win_P1 = 0;
-  var win_P2 = 0;
+//the controller handles:
+//player turn order
+//database communication (updating win/loss records)
+//communicaton between players
 
-  var P1_moves = [];
-  var P2_moves = [];
+ var Game = function() { 
+  this.winner = 0; // 0 - none, id - player id, 2 - player 2
+  this.board = [0,0,0,0,0,0,0,0,0];
 
-  var startPlayer = 2;
-  var curPlayer = 1;
-
-  $(":button[name='help']").click( function() {
-    $("#flash").html("Welcome to Tic-Tac-Two!  Play the game like you would normally play, but keep in mind that moves expire after 3 turns.")
-  });
-
-  
-  function getSpace(n) {
-    return $($images[n]);
+  this.moves = {
+    "1" : [],
+    "2" : []
   }
+};
 
-  function checkWin() {
-    if ((board[0] == 1 && board[1] == 1 && board[2] == 1) || (board[0] == 1 && board[3] == 1 && board[6] == 1) || (board[6] == 1 && board[7] == 1 && board[8] == 1) || (board[2] == 1 && board[5] == 1 && board[8] == 1) || (board[0] == 1 && board[4] == 1 && board[8] == 1) || (board[2] == 1 && board[4] == 1 && board[6] == 1) || (board[1] == 1 && board[4] == 1 && board[7] == 1) || (board[3] == 1 && board[4] == 1 && board[5] == 1)) {
-      winner = 1;
-      win_P1++;
-      $("#p1-score").html(win_P1);
-      $("#flash").html("Player one won");
-    } else if ((board[0] == 2 && board[1] == 2 && board[2] == 2) || (board[0] == 2 && board[3] == 2 && board[6] == 2) || (board[6] == 2 && board[7] == 2 && board[8] == 2) || (board[2] == 2 && board[5] == 2 && board[8] == 2) || (board[0] == 2 && board[4] == 2 && board[8] == 2) || (board[2] == 2 && board[4] == 2 && board[6] == 2) || (board[1] == 2 && board[4] == 2 && board[7] == 2) || (board[3] == 2 && board[4] == 2 && board[5] == 2)) {
-      winner = 2;
-      win_P2++;
-      $("#p2-score").html(win_P2);
-      $("#flash").html("Player two won");
-    }
+Game.prototype.checkWin = function(id) {
+    return ((this.board[0] == id && this.board[1] == id && this.board[2] == id) ||
+        (this.board[0] == id && this.board[3] == id && this.board[6] == id) ||
+        (this.board[6] == id && this.board[7] == id && this.board[8] == id) ||
+        (this.board[2] == id && this.board[5] == id && this.board[8] == id) ||
+        (this.board[0] == id && this.board[4] == id && this.board[8] == id) ||
+        (this.board[2] == id && this.board[4] == id && this.board[6] == id) ||
+        (this.board[1] == id && this.board[4] == id && this.board[7] == id) ||
+        (this.board[3] == id && this.board[4] == id && this.board[5] == id));
+};
+
+Game.prototype.play = function(field) {
+  var id = field.id;
+  var location = field.location;
+
+  if (!(this.winner == 0 && this.board[location] == 0)) {
+    return "BadMove";
   }
-
-
-  $board.click(function(event){
-    var field = $(event.target).attr("data-name");
-    if (!field){
-      return;
-    }
-    play(+field);
-  });
-
-  function play(field) {
-    if (!(winner == 0 && board[field] == 0)) {
-      return;
-    }
-    if (curPlayer == 1) {
-      board[field] = 1;
-      P1_moves.push(field);
-      if(P1_moves.length > 3) {
-        var remove = P1_moves.shift();
-        board[remove] = 0;      
-      }
-      curPlayer += 1;
-    } else {
-      board[field] = 2;
-      P2_moves.push(field);
-      if(P2_moves.length > 3) {
-        var remove = P2_moves.shift();
-        board[remove] = 0;
-      }
-      curPlayer -= 1;
-    }
-    updateBoard();
-    checkWin();
+  this.board[location] = id;
+  this.moves[id].push(location);
+  if(this.moves[id].length > 3) {
+    var remove = this.moves[id].shift();
+    this.board[remove] = 0;      
   }
-
-  function updateBoard() {
-    for(var i = 0; i < 9; i++) {
-      if(board[i] == 1)
-        getSpace(i).attr("src", x);
-      else if (board[i] == 2)
-        getSpace(i).attr("src", o);
-      else
-        getSpace(i).attr("src", blank);
-    }    
-  }
-
-  $(":button[name='replay']").click( function() {
-    curPlayer = startPlayer;
-    if(startPlayer == 1)
-      startPlayer = 2;
-    else
-      startPlayer = 1;
-
-    P1_moves = [];
-    P2_moves = [];
-    winner = 0;
-    board = [0,0,0,0,0,0,0,0,0];
-    updateBoard();
-  });
-
-  //$('form[form="game"] img').click(play());
-});
+  if (this.checkWin(id)) {
+    this.winner = id;
+    return "Win";}
+  else {return "Continue";}
+};
+if (typeof(module) != "undefined" && module.exports) { module.exports = Game; }
