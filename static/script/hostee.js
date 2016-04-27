@@ -1,7 +1,7 @@
 
       
  //var player1 = window.name;
-    var player1 = window.sessionStorage.username;
+var player1 = window.sessionStorage.username;
 var player2 = null;
       
 // Player socket.id's
