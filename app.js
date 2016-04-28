@@ -3,6 +3,8 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io').listen(server);
+const Lobby = require('./lib/lobby.js')
+const lobby = new Lobby(io);
 
 server.listen(8080);
 
@@ -48,11 +50,11 @@ io.sockets.on('connection', function (socket) {
       
       // Add game, each index stores array which stores hosting player followed by 'player2'
       
-      games_available[games_available.length] = username;
+      lobby.addGame(username);
       //games_available[username] = username;
       
       // Emit updated available game array to all listening hostgame.html instances
-      io.sockets.emit('updategames', games_available);
+      io.sockets.emit('updategames', lobby.games_available);
     });
 
 
