@@ -36,8 +36,9 @@ Game.prototype.play = function(field) {
   var id = field.id;
   var location = field.location;
 
+
   if (!(this.winner == 0 && this.board[location] == 0)) {
-    return "BadMove";
+    return {tag: "BadMove"};
   }
   this.board[location] = id;
   this.moves[id].push(location);
@@ -47,7 +48,8 @@ Game.prototype.play = function(field) {
   }
   if (this.checkWin(id)) {
     this.winner = id;
-    return "Win";}
-  else {return "Continue";}
+    return {tag: "Win"};}
+  else {return {tag: "Continue", remove: remove}}
 };
+
 if (typeof(module) != "undefined" && module.exports) { module.exports = Game; }

@@ -222,3 +222,4 @@ pip-log.txt
 
 # ADDED BY BOB
 players.db
+./static/script/socket.js
