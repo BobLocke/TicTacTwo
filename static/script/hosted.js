@@ -11,7 +11,7 @@
    // Change
    // var names = window.name.split(",");
       var player1 = window.sessionStorage.opponent;
-var player2 = window.sessionStorage.username;
+      var player2 = window.sessionStorage.username;
       
 // Player socket.id's
 var p1_id;

@@ -78,6 +78,7 @@ $(function () {
   }
 
   $(":button[name='replay']").click( function() {
+    if (winner == 0){ $("#flash").html("Unable to restart, game currently in progress."); return; }
     if(startPlayer == 1){
       curPlayer = 2;
       startPlayer = 2;

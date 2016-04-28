@@ -95,6 +95,7 @@ socket.on('connect', function(){
     });
 
   socket.emit('join', player2);
+
                           
 // Event that user joined    
 socket.on('join', function(p2) {
