@@ -41,20 +41,23 @@ $(function () {
       return;
     }
     var res = game.play({id: curPlayer, location: location});
-    if (res === "BadMove"){
+    if (res.tag === "BadMove"){
       if (winner == 0){
         $("#flash").html("That was not a legal move. Try again!");
         return;
       }
-    } else if(res === "Win"){
+    } else if(res.tag === "Win"){
       board[location] = curPlayer;
       drawBoard();
       winner = curPlayer;
       $("#flash").html($names[curPlayer].val() + " wins!");
       wins[curPlayer]+=1;
       $wins[curPlayer].html(String(wins[curPlayer]));
-    } else if(res === "Continue"){
+    } else if(res.tag === "Continue"){
       board[location] = curPlayer;
+      console.log(res.remove);
+      console.log(typeof(res.remove));
+      if (typeof(res.remove) === "string") {board[res.remove] = 0};
       curPlayer = curPlayer === 1 ? 2 : 1;
       drawBoard();
     }
